@@ -5,7 +5,7 @@
 class Users extends CI_Controller {
     
     //e.g. array("gmail.com", "gmx.com", "web.de");
-    protected $email_whitelist = array('lgs-hu.eu');
+    protected $email_whitelist = array();
     //e.g. array("yahoo.com", "outlook.com");
     protected $email_blacklist = array();
     

@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="de" http-equiv="Content-Language" />
+<title>CI-Users Documentation</title>
+<style type="text/css">
+.auto-style1 {
+	font-family: "Courier New", Courier, monospace;
+	margin-left: 40px;
+}
+.auto-style2 {
+	font-family: "Courier New", Courier, monospace;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Getting Started</h1>
+<p>For using the users library you first have to import it. Just call:</p>
+<p class="auto-style1">$this-&gt;load-&gt;library("LUsers");</p>
+<p class="auto-style1">$this-&gt;users = $this-&gt;lusers;</p>
+<p>If your outside of an Controller replace <span class="auto-style2">
+"$this-&gt;lusers"</span> with <span class="auto-style2">"new LUsers()"</span></p>
+<p>Now you have access to the users library.</p>
+<p>Then you can use the following list of commands:</p>
+<h1>Check if user is logged in</h1>
+<p class="auto-style1">$this-&gt;users-&gt;loggedIn();</p>
+<h1>Get User</h1>
+<h2>Current</h2>
+<h3>Current user stdObject:</h3>
+<p class="auto-style1">$cu = $this-&gt;users-&gt;getCurrentUser();</p>
+<h3>Current user ID:</h3>
+<p class="auto-style1">$cuID = $this-&gt;users-&gt;getCurrentUserID();</p>
+<h2>Other</h2>
+<h3>By ID:</h3>
+<p class="auto-style1">$user = $this-&gt;users-&gt;getUserByID($ID);</p>
+<h3>By Username:</h3>
+<p class="auto-style1">$user = $this-&gt;users-&gt;getUserByUserName($username);</p>
+<h3>By E-Mail-Address:</h3>
+<p class="auto-style1">$user = $this-&gt;users-&gt;getUserByEMail($email);</p>
+<h1>Get Userdata</h1>
+<h2>By Function</h2>
+<h3>Username:</h3>
+<p class="auto-style1">$this-&gt;users-&gt;getUsername($userObj);</p>
+<h3>ID:</h3>
+<p class="auto-style1">$this-&gt;users-&gt;getID($userObj);</p>
+<h2>By Accessor</h2>
+<p class="auto-style1">$userObj-&gt;[accessorName];</p>
+<h2>Accessor-Names</h2>
+<ul>
+	<li>
+	<h3>id</h3>
+	<ul>
+		<li>Gets the ID of the User</li>
+	</ul>
+	</li>
+	<li>
+	<h3>&nbsp;name</h3>
+	<ul>
+		<li>Gets the Username</li>
+	</ul>
+	</li>
+	<li>
+	<h3>prename</h3>
+	<ul>
+		<li>Gets the Prename of the user (if entered)</li>
+	</ul>
+	</li>
+	<li>
+	<h3>lastname</h3>
+	<ul>
+		<li>Gets the Lastname of the user (if entered)</li>
+	</ul>
+	</li>
+	<li>
+	<h3>password</h3>
+	<ul>
+		<li>Gets the Password-Hash of the user to compare it with a password you 
+		have to call the <span class="auto-style2">password_verify</span> method 
+		of php.</li>
+	</ul>
+	</li>
+	<li>
+	<h3>gender</h3>
+	<ul>
+		<li>Gets the Gender of the user</li>
+	</ul>
+	</li>
+	<li>
+	<h3>phone</h3>
+	<ul>
+		<li>Gets the Phonenumber of the user (if entered)</li>
+	</ul>
+	</li>
+	<li>
+	<h3>created</h3>
+	<ul>
+		<li>Gets the Date of Registration</li>
+	</ul>
+	</li>
+	<li>
+	<h3>modified</h3>
+	<ul>
+		<li>Gets the Date of the last account modification</li>
+	</ul>
+	</li>
+	<li>
+	<h3>status</h3>
+	<ul>
+		<li>Gets the State of Validation</li>
+	</ul>
+	</li>
+	<li>
+	<h3>regkey</h3>
+	<ul>
+		<li>Gets a randomly generated key for validation and password reset 
+		purposes</li>
+	</ul>
+	</li>
+</ul>
+<h1>Error if not logged in</h1>
+<p>Call the following method to show an error if the user is not logged in. You 
+don't have to call an if or anything else the site won't be shown if the user is 
+not logged in after the following method:</p>
+<p class="auto-style1">$this-&gt;users-&gt;needLogin();</p>
+<h1>Added Sites</h1>
+<h2>Login-Site:</h2>
+<p class="auto-style1">users/login</p>
+<p>A page where the user is able to log themself in.</p>
+<h2>Registration-Site:</h2>
+<p class="auto-style1">users/registration</p>
+<p>The page where new users will be registered</p>
+<h2>Installation-Site:</h2>
+<p class="auto-style1">users/install</p>
+<p>On the page the users table in the database will be created</p>
+<h2>Profile-Site:</h2>
+<p class="auto-style1">users/profile/$id</p>
+<p>A page which shows the informations about users publicly
+<span class="auto-style2">$id</span> has to be replaced with the
+<span class="auto-style2">username</span> or the <span class="auto-style2">ID</span> 
+of the user. The page will only be available after changing "<span class="auto-style2">protected 
+$profiles_public = false;</span>" to "<span class="auto-style2">protected 
+$profiles_public = true;</span>" in the <span class="auto-style2"><strong><em>
+Users</em></strong></span> Controller.</p>
+<h2>Account-Site:</h2>
+<p class="auto-style1">users/account</p>
+<p>A page which shows the informations about the currently logged in user.</p>
+<h2>Logout-Site:</h2>
+<p class="auto-style1">users/logout</p>
+<p>After calling this page you will no longer be logged in and find yourself on 
+the login page.</p>
+<h2>Reset Password-Site:</h2>
+<p class="auto-style1">users/reset_password</p>
+<p>This page can be used to reset the password if an users forgot it.</p>
+
+</body>
+
+</html>
