@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="de" http-equiv="Content-Language" />
+<title>CI-Users Documentation</title>
+<style type="text/css">
+.auto-style1 {
+	font-family: "Courier New", Courier, monospace;
+	margin-left: 40px;
+}
+.auto-style2 {
+	font-family: "Courier New", Courier, monospace;
+}
+</style>
+<script type="text/javascript">
+	document.addEventListener("DOMContentLoaded", function(event) {
+		if(location.hostname == "http://htmlpreview.github.io"){
+			var as = document.getElementsByTagName("a");
+			for(var i = 0; i < as.length; i++){
+				var a = as[i];
+				if(a.hasAttribute("href")){
+					a.setAttribute("href", "http://htmlpreview.github.io/?https://github.com/DragonSkills99/CI-Users/blob/master/Documentation/" + a.getAttribute("href"));
+				}
+			}
+		}
+	});
+</script>
+</head>
+
+<body>
+
+<h1>Added Sites</h1>
+<h2>Login-Site:</h2>
+<p class="auto-style1">users/login</p>
+<p>A page where the user is able to log themself in.</p>
+<h2>Registration-Site:</h2>
+<p class="auto-style1">users/registration</p>
+<p>The page where new users will be registered</p>
+<h2>Installation-Site:</h2>
+<p class="auto-style1">users/install</p>
+<p>On the page the users table in the database will be created</p>
+<h2>Profile-Site:</h2>
+<p class="auto-style1">users/profile/$id</p>
+<p>A page which shows the informations about users publicly
+<span class="auto-style2">$id</span> has to be replaced with the
+<span class="auto-style2">username</span> or the <span class="auto-style2">ID</span> 
+of the user. The page will only be available after changing "<span class="auto-style2">protected 
+$profiles_public = false;</span>" to "<span class="auto-style2">protected 
+$profiles_public = true;</span>" in the <span class="auto-style2"><strong><em>
+Users</em></strong></span> Controller.</p>
+<h2>Account-Site:</h2>
+<p class="auto-style1">users/account</p>
+<p>A page which shows the informations about the currently logged in user.</p>
+<h2>Logout-Site:</h2>
+<p class="auto-style1">users/logout</p>
+<p>After calling this page you will no longer be logged in and find yourself on 
+the login page.</p>
+<h2>Reset Password-Site:</h2>
+<p class="auto-style1">users/reset_password</p>
+<p>This page can be used to reset the password if an users forgot it.</p>
+<h1><a href="GettingStarted.html">&lt; Back</a></h1>
+
+</body>
+
+</html>

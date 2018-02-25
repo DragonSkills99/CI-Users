@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="de" http-equiv="Content-Language" />
+<title>CI-Users Documentation</title>
+<style type="text/css">
+.auto-style1 {
+	font-family: "Courier New", Courier, monospace;
+	margin-left: 40px;
+}
+.auto-style2 {
+	font-family: "Courier New", Courier, monospace;
+}
+</style>
+<script type="text/javascript">
+	document.addEventListener("DOMContentLoaded", function(event) {
+		if(location.hostname == "http://htmlpreview.github.io"){
+			var as = document.getElementsByTagName("a");
+			for(var i = 0; i < as.length; i++){
+				var a = as[i];
+				if(a.hasAttribute("href")){
+					a.setAttribute("href", "http://htmlpreview.github.io/?https://github.com/DragonSkills99/CI-Users/blob/master/Documentation/" + a.getAttribute("href"));
+				}
+			}
+		}
+	});
+</script>
+</head>
+
+<body>
+
+<h1>Get Userdata</h1>
+<h2>By Function</h2>
+<h3>Username:</h3>
+<p class="auto-style1">$this-&gt;users-&gt;getUsername($userObj);</p>
+<h3>ID:</h3>
+<p class="auto-style1">$this-&gt;users-&gt;getID($userObj);</p>
+<h2>By Accessor</h2>
+<p class="auto-style1">$userObj-&gt;[accessorName];</p>
+<h2>Accessor-Names</h2>
+<ul>
+	<li>
+	<h3>id</h3>
+	<ul>
+		<li>Gets the ID of the User</li>
+	</ul>
+	</li>
+	<li>
+	<h3>&nbsp;name</h3>
+	<ul>
+		<li>Gets the Username</li>
+	</ul>
+	</li>
+	<li>
+	<h3>prename</h3>
+	<ul>
+		<li>Gets the Prename of the user (if entered)</li>
+	</ul>
+	</li>
+	<li>
+	<h3>lastname</h3>
+	<ul>
+		<li>Gets the Lastname of the user (if entered)</li>
+	</ul>
+	</li>
+	<li>
+	<h3>password</h3>
+	<ul>
+		<li>Gets the Password-Hash of the user to compare it with a password you 
+		have to call the <span class="auto-style2">password_verify</span> method 
+		of php.</li>
+	</ul>
+	</li>
+	<li>
+	<h3>gender</h3>
+	<ul>
+		<li>Gets the Gender of the user</li>
+	</ul>
+	</li>
+	<li>
+	<h3>phone</h3>
+	<ul>
+		<li>Gets the Phonenumber of the user (if entered)</li>
+	</ul>
+	</li>
+	<li>
+	<h3>created</h3>
+	<ul>
+		<li>Gets the Date of Registration</li>
+	</ul>
+	</li>
+	<li>
+	<h3>modified</h3>
+	<ul>
+		<li>Gets the Date of the last account modification</li>
+	</ul>
+	</li>
+	<li>
+	<h3>status</h3>
+	<ul>
+		<li>Gets the State of Validation</li>
+	</ul>
+	</li>
+	<li>
+	<h3>regkey</h3>
+	<ul>
+		<li>Gets a randomly generated key for validation and password reset 
+		purposes</li>
+	</ul>
+	</li>
+</ul>
+<h1><a href="GettingStarted.html">&lt; Back</a></h1>
+
+
+</body>
+
+</html>
