@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="de" http-equiv="Content-Language" />
+<title>CI-Users Documentation</title>
+<script type="text/javascript">
+	document.addEventListener("DOMContentLoaded", function(event) {
+		if(location.hostname == "http://htmlpreview.github.io"){
+			var as = document.getElementsByTagName("a");
+			for(var i = 0; i < as.length; i++){
+				var a = as[i];
+				if(a.hasAttribute("href")){
+					a.setAttribute("href", "http://htmlpreview.github.io/?https://github.com/DragonSkills99/CI-Users/blob/master/Documentation/" + a.getAttribute("href"));
+				}
+			}
+		}
+	});
+</script>
+<style type="text/css">
+.auto-style1 {
+	font-family: "Courier New", Courier, monospace;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Whitelist and Blacklist</h1>
+<p>The whitelist allows you to define domains of E-Mails which should be 
+allowed, if anyone with another domain tries to register, he will get an error. 
+(The domain is anything after the "@")</p>
+<p>The blacklist allows you to define domains of E-Mails which should be 
+disallowed, if anyone with a defined domain tries to register, he will get an 
+error.</p>
+<h2>Whitelist</h2>
+<p>To create a whitelist you just have to fill the <span class="auto-style1">
+$email_whitelist </span>array in the <strong><em>Users</em></strong> Controller.</p>
+<p>e.g. "<span class="auto-style1">protected $email_whitelist = array( 
+"gmail.com" );</span>"</p>
+<p>any E-Mail-Address instead of @gmail.com will be disallowed.</p>
+<h2>Blacklist</h2>
+<p>To create a blacklist you just have to fill the <span class="auto-style1">
+$email_blacklist </span>array in the <strong><em>Users</em></strong> Controller.</p>
+<p>e.g. "<span class="auto-style1">protected $email_blacklist = array( "gmx.net" 
+);</span>"</p>
+<p>any @gmx.de E-Mail-Address will be disallowed.</p>
+<h1><a href="GettingStarted.html">&lt; Back</a></h1>
+
+</body>
+
+</html>
