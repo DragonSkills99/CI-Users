@@ -5,7 +5,7 @@
 class Users extends CI_Controller {
     
     //e.g. array("gmail.com", "gmx.com", "web.de");
-    protected $email_whitelist = array();
+    protected $email_whitelist = array('lgs-hu.eu');
     //e.g. array("yahoo.com", "outlook.com");
     protected $email_blacklist = array();
     
@@ -239,8 +239,10 @@ $owner<br>
             $this->session->unset_userdata('error_msg');
         }
         
-        if(isset($data['success_msg'])) $this->formbuilder->addField()->setTag("h2")->setInnerValue($data['success_msg'])->setAttribute('style', 'color: lime;')->setFillBothRows(true);
-        if(isset($data['error_msg'])) $this->formbuilder->addField()->setTag("h2")->setInnerValue($data['error_msg'])->setAttribute('style', 'color: red;')->setFillBothRows(true);
+        if(isset($data['success_msg'])) $success_msg = $this->formbuilder->addField()->setTag("h2")->setInnerValue($data['success_msg'])->setAttribute('style', 'color: lime;')->setFillBothRows(true);
+        $error_msg = $this->formbuilder->addField()->setTag("h2")->setAttribute('style', 'color: red;')->setFillBothRows(true);
+        
+        if(isset($data['error_msg'])) $error_msg->setInnerValue($data['error_msg']);
         
         $this->formbuilder->setMethod("POST");
         $this->formbuilder->addField()->setType("text")->setName("email")->setDescription("Username / E-Mail:");
@@ -266,10 +268,12 @@ $owner<br>
                         $this->session->set_userdata('userId',$checkLogin['id']);
                         redirect('users/account/');
                     }else{
-                        $data['error_msg'] = 'Wrong email or password, please try again.';
+                        $error_msg->setInnerValue('Wrong email or password, please try again.');
                     }
                 }
-                
+                else{
+                    $error_msg->setInnerValue('Wrong email or password, please try again.');
+                }
             }
         }
         $data['title'] = "User Login";
