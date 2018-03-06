@@ -192,7 +192,7 @@ class Users extends CI_Controller {
         
         if($this->input->post('loginSubmit')){
             if ($this->formbuilder->validate()) {
-                $checkLogin = $this->get_user();
+                $checkLogin = $this->musers_model->get_user();
                 if($checkLogin){
                     if($this->musers_model->authenticate($checkLogin, $this->input->post('password'))){
                         $this->session->set_userdata('isUserLoggedIn',TRUE);
@@ -275,7 +275,7 @@ class Users extends CI_Controller {
                     redirect('users/registration');
                 }
                 
-                if($this->musers_model->register()){
+                if($this->musers_model->register($this->owner)){
                     
                     if($this->musers_model->registration_mail_sent())
                         $this->session->set_userdata('success_msg', 'Your registration was successful. Please login to your account.');

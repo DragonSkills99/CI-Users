@@ -4,7 +4,9 @@ class MUsers_model extends CI_Model {
     public function __construct(){
         $this->load->library('form_validation');
         $this->load->library('session');
+        $this->load->database();
         $this->load->helper('string');
+        $this->load->helper('url');
         $this->load->helper('mail');
         if(!$this->db->table_exists('users')) $this->create_users_table();
     }
@@ -169,10 +171,10 @@ class MUsers_model extends CI_Model {
     }
     
     public function get_user(){
-        $checkLogin = $this->$this->users->getUserByEMail($this->input->post('email'));
+        $checkLogin = $this->users->getUserByEMail($this->input->post('email'));
         if($checkLogin === null || $checkLogin->status == '0') $checkLogin = false;
         if(!$checkLogin){
-            $checkLogin = $this->$this->users->getUserByUserName(strtolower($this->input->post('email')));
+            $checkLogin = $this->users->getUserByUserName(strtolower($this->input->post('email')));
             if($checkLogin === null || $checkLogin->status == '0') $checkLogin = false;
         }
         return $checkLogin;
