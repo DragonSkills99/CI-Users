@@ -182,7 +182,7 @@ class Users extends CI_Controller {
         if(isset($data['error_msg'])) $error_msg->setInnerValue($data['error_msg']);
         
         $this->formbuilder->setMethod("POST");
-        $this->formbuilder->addField()->setType("text")->setName("email")->setDescription("Username / E-Mail:");
+        $this->formbuilder->addField()->setFillPreviousValue(true)->setType("text")->setName("email")->setDescription("Username / E-Mail:");
         $this->formbuilder->addField()->setType("password")->setName("password")->setDescription("Password:")->setRule("required");
         $this->formbuilder->addField()->setType("submit")->setName("loginSubmit")->setValue("Login")->setFillBothRows(true);
         $this->formbuilder->addField()->setTag("br");
@@ -234,12 +234,12 @@ class Users extends CI_Controller {
         $this->formbuilder->setMethod("POST");
         $this->formbuilder->addField()->setTag("h3")->setInnerValue($this->session->userdata("fail_msg"))->setAttribute("style", "color: red;");
         $this->session->set_userdata("fail_msg", "");
-        $this->formbuilder->addField()->setType("text")->setName("name")->setDescription("Name")->setValue(!isset($userData['name']) ? '' : $userData['name'])->setAttribute('placeholder', 'Name')->setClass('form-control')->setAttribute('required', null)->setFillBothRows(true)->setRule("required");
-        $this->formbuilder->addField()->setType("text")->setName("prename")->setValue(!isset($userData['prename']) ? '' : $userData['prename'])->setAttribute('placeholder', 'Prename')->setClass('form-control')->setFillBothRows(true);
-        $this->formbuilder->addField()->setType("text")->setName("surname")->setValue(!isset($userData['surname']) ? '' : $userData['surname'])->setAttribute('placeholder', 'Surname')->setClass('form-control')->setFillBothRows(true);
-        $this->formbuilder->addField()->setType("email")->setName("email")->setValue(!isset($userData['email']) ? '' : $userData['email'])->setAttribute('placeholder', 'E-Mail')->setClass('form-control')->setAttribute('required', null)->setFillBothRows(true)->setDescription("E-Mail")->setRule("required|valid_email|callback_email_whitelist|callback_email_blacklist");
-        $this->formbuilder->addField()->setType("text")->setName("phone")->setValue(!isset($userData['phone']) ? '' : $userData['phone'])->setAttribute('placeholder', 'Phone')->setClass('form-control')->setFillBothRows(true);
-        $this->formbuilder->addField()->setType("password")->setName("password")->setAttribute('placeholder', 'Password')->setClass('form-control')->setAttribute('required', null)->setFillBothRows(true)->setDescription("Password")->setRule("required");
+        $this->formbuilder->addField()->setFillPreviousValue(true)->setType("text")->setName("name")->setDescription("Name")->setValue(!isset($userData['name']) ? '' : $userData['name'])->setAttribute('placeholder', 'Name')->setClass('form-control')->setAttribute('required', null)->setFillBothRows(true)->setRule("required");
+        $this->formbuilder->addField()->setFillPreviousValue(true)->setType("text")->setName("prename")->setValue(!isset($userData['prename']) ? '' : $userData['prename'])->setAttribute('placeholder', 'Prename')->setClass('form-control')->setFillBothRows(true);
+        $this->formbuilder->addField()->setFillPreviousValue(true)->setType("text")->setName("surname")->setValue(!isset($userData['surname']) ? '' : $userData['surname'])->setAttribute('placeholder', 'Surname')->setClass('form-control')->setFillBothRows(true);
+        $this->formbuilder->addField()->setFillPreviousValue(true)->setType("email")->setName("email")->setValue(!isset($userData['email']) ? '' : $userData['email'])->setAttribute('placeholder', 'E-Mail')->setClass('form-control')->setAttribute('required', null)->setFillBothRows(true)->setDescription("E-Mail")->setRule("required|valid_email|callback_email_whitelist|callback_email_blacklist");
+        $this->formbuilder->addField()->setFillPreviousValue(true)->setType("text")->setName("phone")->setValue(!isset($userData['phone']) ? '' : $userData['phone'])->setAttribute('placeholder', 'Phone')->setClass('form-control')->setFillBothRows(true);
+        $this->formbuilder->addField()->setFillPreviousValue(true)->setType("password")->setName("password")->setAttribute('placeholder', 'Password')->setClass('form-control')->setAttribute('required', null)->setFillBothRows(true)->setDescription("Password")->setRule("required");
         $this->formbuilder->addField()->setType("password")->setName("conf_password")->setAttribute('placeholder', 'Confirm Password')->setClass('form-control')->setAttribute('required', null)->setFillBothRows(true)->setDescription("Confirm Password")->setRule("required|matches[password]");
             
         $this->formbuilder->addField()->setTag("label")->addChild()->setTag("h3")->setInnerValue("Gender:");

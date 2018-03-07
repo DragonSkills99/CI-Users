@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-require "/var/www/html/google-api-php-client-2.2.1/vendor/autoload.php";
+require "./google-api-php-client/vendor/autoload.php";
 define('APPLICATION_NAME', 'School Mailer');
 define('CREDENTIALS_PATH', APPPATH.'credentials.json');
 define('CLIENT_SECRET_PATH', APPPATH.'secret.json');
